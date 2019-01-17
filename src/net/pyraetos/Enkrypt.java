@@ -313,7 +313,6 @@ public class Enkrypt {
 		int[] keyMatrix;
 		if(str.length() != 0) {
 			Random r = new Random(str.hashCode());
-			r.nextInt(Integer.MAX_VALUE);
 			int hc1 = r.nextInt(Integer.MAX_VALUE);
 			int hc2 = String.valueOf(hc1).hashCode();
 			int hc3 = String.valueOf(hc2).hashCode();
@@ -321,7 +320,6 @@ public class Enkrypt {
 			keyMatrix = keyMatrix(hc1, hc2, hc3, hc4);
 		}else{
 			keyMatrix = keyMatrix(0xdeafbabe, 0xbadcafe, 0xdeadbeef, 0xfeedabe);
-			
 		}
 		System.out.println();
 		String hexKey = "";
