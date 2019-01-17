@@ -98,6 +98,10 @@ public class Enkrypt {
 			blocks[i >>> 4] = lastBlock;
 		}
 		saveData(blocks);
+		print("Enter any value to exit:\n> ");
+		Scanner s = new Scanner(System.in);
+		s.nextLine();
+		s.close();
 	}
 	
 	public static void cbc(int[][] a, int[][] b){
