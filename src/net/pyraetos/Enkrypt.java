@@ -34,10 +34,10 @@ public class Enkrypt {
 									   0x8c, 0xa1, 0x89, 0x0d, 0xbf, 0xe6, 0x42, 0x68, 0x41, 0x99, 0x2d, 0x0f, 0xb0, 0x54, 0xbb, 0x16};
 
 	public static final int[][] IV = {
-			{0,4,8,12},
-			{1,5,9,13},
-			{2,6,10,14},
-			{3,7,11,15}
+			{0,0,0,0},
+			{0,0,0,0},
+			{0,0,0,0},
+			{0,0,0,0}
 	};
 	
 	public static void main(String[] args) {
@@ -300,7 +300,6 @@ public class Enkrypt {
 			}
 			os.flush();
 			os.close();
-			System.out.println();
 			println("File saved successfully!");
 		}catch(Exception e) {
 			exit(e.getMessage());
@@ -321,7 +320,6 @@ public class Enkrypt {
 		}else{
 			keyMatrix = keyMatrix(0xdeafbabe, 0xbadcafe, 0xdeadbeef, 0xfeedabe);
 		}
-		System.out.println();
 		String hexKey = "";
 		for(int i = 0; i < 4; i++) {
 			for(int j = 0; j < 4; j++) {
@@ -331,6 +329,15 @@ public class Enkrypt {
 			}
 		}
 		println("Key stored as " + hexKey + "!");
+		String ivString = "";
+		for(int i = 0; i < 4; i++) {
+			for(int j = 0; j < 4; j++) {
+				String hex = Integer.toHexString(IV[j][i]);
+				if(hex.length() == 1) hex = "0" + hex;
+				ivString += hex;
+			}
+		}
+		println("Using CBC mode with IV " + ivString + "!");
 		return keyMatrix;
 	}
 	
