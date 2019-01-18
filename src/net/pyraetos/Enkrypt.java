@@ -188,7 +188,6 @@ public class Enkrypt {
 				System.out.println();
 			}
 		}
-
 		return w;
 	}
 
